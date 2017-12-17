@@ -1,6 +1,6 @@
 /* 
  * File:   DBusPOD7Workers.cpp
- * Author: SET - nmset@netcourrier.com
+ * Author: SET - nmset@yandex.com
  * License : GPL V2
  * 
  * Created on 10 décembre 2017, 14:12

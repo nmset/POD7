@@ -1,6 +1,6 @@
 /* 
  * File:   main.cpp
- * Author: SET - nmset@netcourrier.com
+ * Author: SET - nmset@yandex.com
  * License : GPL V2
  *
  * Created on 9 décembre 2017, 19:04
