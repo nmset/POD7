@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <node name="/pedal/event">
+    <interface name="pedal.event">
+        <method name="Quit">
+            <arg/>
+        </method>
+        <signal name="OnPedalEvent">
+            <arg type="i" name="code" direction="out"/>
+        </signal>
+    </interface>
+</node>
