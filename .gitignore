@@ -1,4 +1,6 @@
 build/
 .kdev4/
 POD7.kdev4
+Resources/Lokalize/main.lqa
+Resources/Lokalize/fr/POD7.mo
 

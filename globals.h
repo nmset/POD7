@@ -9,6 +9,14 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
+#include <libintl.h>
+#include <string>
+using namespace std;
+
+//https://www.labri.fr/perso/fleury/posts/programming/a-quick-gettext-tutorial.html
+#define _(STRING) gettext(STRING)
+
+
 #define _APPNAME_ "POD7" // Pedal events Over DBus
 #define _APP_DESCRIPTION_ "Send pedal events over DBus"
 #define _VERSION_ "2"
