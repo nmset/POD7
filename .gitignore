@@ -1,2 +1,4 @@
-dist/
 build/
+.kdev4/
+POD7.kdev4
+

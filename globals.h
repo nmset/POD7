@@ -11,7 +11,7 @@
 
 #define _APPNAME_ "POD7" // Pedal events Over DBus
 #define _APP_DESCRIPTION_ "Send pedal events over DBus"
-#define _VERSION_ "1"
+#define _VERSION_ "2"
 #define _AUTHOR_ "SET - nmset@yandex.com"
 #define _ABOUT_ string(_APPNAME_) + string(" - version ") + string(_VERSION_) \
         + string(" - ") + string(_APP_DESCRIPTION_) + _DOT_ \
