@@ -32,7 +32,7 @@ DBus::BusDispatcher g_dispatcher;
 void signalhandler(int sn)
 {
     if (g_verbose)
-        cout << "Application signaled to exit." << endl;
+        cout << "_(Application signaled to exit.)" << endl;
     hid_close(g_device);
     hid_exit();
     exit(0);
@@ -46,7 +46,7 @@ bool ListDevices()
 {
     if (hid_init() != 0)
     {
-        cout << "Can't initialize HID library." << endl;
+        cout << _("Can't initialize HID library.") << endl;
         return false;
     }
     hid_device_info * devices;
@@ -54,7 +54,7 @@ bool ListDevices()
     if (devices == NULL)
     {
         if (g_verbose)
-            cout << "No HIDRaw devices found." << endl;
+            cout << _("No hidraw devices found.") << endl;
     }
     else
     {
@@ -91,7 +91,7 @@ bool ManageParams(int argc, char** argv)
     {
         po::options_description desc(_ABOUT_);
         desc.add_options()
-                ("help,h", "Print help messages.")
+                ("help,h", _("Print help messages."))
         /*
          * Use an udev rule to identify the hidraw device  :
          * Ex : 
@@ -99,9 +99,9 @@ bool ManageParams(int argc, char** argv)
          * KERNEL=="hidraw[0-9]*", SYMLINK+="hidraw-vec", ATTRS{idVendor}=="05f3", ATTRS{idProduct}=="00ff",  MODE="0660", GROUP="transcript"
          * Using /dev/hidraw-vec better control better control.
          */
-                ("device,d", po::value<string>(&g_deviceFile), "HIDRaw pedal device file (/dev/<file>).")
-                ("list,l", "List HIDRaw devices.")
-                ("verbose,v", "Show some messages on stdout, namely, signaled pedal codes.");
+                ("device,d", po::value<string>(&g_deviceFile), _("hidraw pedal device file (/dev/<file>)."))
+                ("list,l", _("List hidraw devices."))
+                ("verbose,v", _("Show some messages on stdout, namely, signaled pedal codes."));
 
         po::variables_map vm;
         po::variables_map vmc;
@@ -126,13 +126,13 @@ bool ManageParams(int argc, char** argv)
         }
         catch (po::error& eb)
         {
-            cerr << "Error : " << eb.what() << endl;
+            cerr << _("Error : ") << eb.what() << endl;
             return false;
         }
     }
     catch (exception& e)
     {
-        cerr << "Error : " << e.what() << endl;
+        cerr << _("Error : ") << e.what() << endl;
         return false;
     }
 
@@ -144,19 +144,23 @@ bool ManageParams(int argc, char** argv)
  */
 int main(int argc, char** argv)
 {
+    setlocale (LC_ALL, "");
+    bindtextdomain (_APPNAME_, "/usr/local/share/locale"); // containing fr/LC_MESSAGES/
+    textdomain (_APPNAME_);
+    
     if (!ManageParams(argc, argv))
         return 0;
     signal(SIGINT, signalhandler);
     signal(SIGTERM, signalhandler);
     if (hid_init() != 0)
     {
-        cout << "Can't initialize HID library." << endl;
+        cout << _("Can't initialize HID library.") << endl;
         return 0;
     }
     g_device = hid_open_path(g_deviceFile.c_str());
     if (!g_device)
     {
-        cout << "Can't open " << g_device << _DOT_ << endl;
+        cout << _("Can't open ") << g_device << _DOT_ << endl;
         hid_exit();
         return 0;
     }
@@ -194,7 +198,7 @@ int main(int argc, char** argv)
     }
 
     if (g_verbose)
-        cout << "Application exit." << endl;
+        cout << _("Application exit.") << endl;
     hid_close(g_device);
     hid_exit();
     return 0;
