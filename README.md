@@ -6,4 +6,4 @@ The forwarded signal can then be remotely caught and reacted upon.
 
 The forwarded pedal events can be identified using the -v switch.
 
-Work done as a hobbyist with NetBeans, targeting GNU/Linux OS.
+Use at your own risks. Work done as a hobbyist, targeting GNU/Linux OS.
