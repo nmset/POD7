@@ -1,6 +1,6 @@
 /* 
  * File:   DBusPOD7Workers.h
- * Author: SET - nmset@yandex.com
+ * Author: Saleem Edah-Tally - nmset@yandex.com
  * License : GPL V2
  *
  * Created on 10 décembre 2017, 14:12
